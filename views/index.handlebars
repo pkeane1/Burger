@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center m-3">
+            <h1 class= ""><i class="fas fa-hamburger"></i>Burgers!</h1>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-5 ks-container mx-auto p-2 m-3">
+            <h3 class="text-center titleBurger py-2 mx-auto">Eat these burgers!</h3>
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li class="list-group-item mx-auto p-4 d-flex ">{{id}}. {{burger_name}}<button data-id={{id}} type="button" class="btn btn-success ml-4 eat-burger ml-auto">
+                    Eat this burger!
+                </button></li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+
+        </div>
+        <div class="col-md-5 ks-container mx-auto p-2 m-3">
+            <h3 class="text-center titleBurger py-2 mx-auto">Eaten Burgers</h3>
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="list-group-item mx-auto p-4 d-flex">{{id}}. {{burger_name}}<button data-id={{this.id}} type="button" class="btn btn-success ml-4 delete-burger ml-auto">
+                    Remove this burger!
+                </button></li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center mx-auto  ks-container p-2 m-3">
+            <form class="create-form" role="form">
+                <div class="form-group col-12 text-center mx-auto">
+                    <label class="biggerText" for="burgerInput">Add a burger!</label>
+                    <textarea id="burger" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
